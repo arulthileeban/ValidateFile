@@ -5,10 +5,26 @@
     <title>Upload File</title>
 </head>
 <body>
+<center>
+<h1>File upload - Verifier</h1>
+<hr>
+    <br />
+    <br />
+    <br />
 <form action="/file" method="POST" enctype="multipart/form-data">
+    Pick type of hashsum: <select id="hash" name="hash">
+    <option value="md5">MD5</option>
+    <option value="sha1">SHA1</option>
+    </select><br />
+    <br />
     Upload File: <input type="file" name="ufile" id="ufile"><br />
+    <br />
+    <br />
+     Original Hash value: <input type="text" name="trhash" id="trhash"><br />
+    <br />
+    <br />
     <input type="submit" value="Submit" name="submit">
 </form>
-
+</center>
 </body>
 </html>
