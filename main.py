@@ -1,5 +1,6 @@
 from flask import Flask,request,url_for,render_template
 import hashlib
+import scraper
 app = Flask(__name__)
 
 
@@ -15,6 +16,11 @@ def file():
         ufile=request.files['ufile']
         hash=request.form['hash']
         og_hash=request.form['trhash']
+        link=request.form['site']
+        (val,vhash)=scraper.scrapAll(link)#Returns hash value and hash type
+        if og_hash=="":
+            og_hash=val
+            hash=vhash
         for line in iter(ufile):
             if hash=="sha1":
                 shasher.update(line)
